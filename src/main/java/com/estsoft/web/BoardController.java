@@ -1,10 +1,10 @@
 package com.estsoft.web;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort.Direction;
-import org.springframework.data.web.PageableDefault;
+import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
+import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,11 +33,21 @@ public class BoardController {
 		return "/board/list";
 	}
 	
-	@PostMapping("/getList")
-	@ResponseBody
-	public Page<Board> list(@PageableDefault(sort = {"id"}, direction = Direction.DESC, size = 10) Pageable pageable) {
-		System.out.println("되냐");
-		return boardRepository.findAll(pageable);
-	}
+	/*
+	 * @PostMapping("/getList")
+	 * 
+	 * @ResponseBody public Page<Board> list(@PageableDefault(sort = {"id"},
+	 * direction = Direction.DESC, size = 10) Pageable pageable) {
+	 * System.out.println("되냐"); return boardRepository.findAll(pageable); }
+	 */
+	
+	  @PostMapping("/getList")
+	  @ResponseBody 
+	  public DataTablesOutput<Board> list(@Valid DataTablesInput input) {
+		  System.out.println("되냐"); 
+		  System.out.println(boardRepository.findAll(input));
+		  return boardRepository.findAll(input); 
+	  }
+	 
 	
 }

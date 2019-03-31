@@ -8,7 +8,5 @@ import com.estsoft.repository.BoardRepository;
 @Service
 public class BoardServiceImpl implements BoardService {
 	
-	@Autowired
-	BoardRepository boardRepository;
 	
 }

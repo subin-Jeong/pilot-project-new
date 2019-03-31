@@ -39,5 +39,9 @@ dependencies {
 
 	compile 'org.mariadb.jdbc:mariadb-java-client'
 	
+	compile 'org.springframework.boot:spring-boot-devtools'
+	
+	compile 'com.github.darrachequesne:spring-data-jpa-datatables:5.0.0'
+	
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

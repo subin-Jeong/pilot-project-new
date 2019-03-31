@@ -13,15 +13,24 @@ $(document).ready(function() {
 	    ordering: true,
 	    bServerSide: true,
 	    searching: false,
-	    sAjaxSource: "/board/getList",
+	    ajax: {
+	        url: "/board/getList",
+	        dataSrc: "data",
+		    data: function(d) {
+		        return JSON.stringify(d);
+		    },
+		    contentType: 'application/json',
+		    type: 'POST'
+	    },
+
 	    sServerMethod: "POST",
 	    columns: [
-	    { data: 'id'},
-	     { data: 'title' },
-	     { data: 'title' },
-	     { data: 'title' },
-	     { data: 'title' },
-	     { data: 'title' }
+	    { data: "id"},
+	     { data: "title" },
+	     { data: "title" },
+	     { data: "title" },
+	     { data: "title" },
+	     { data: "title" }
 	       ]
 	});
 

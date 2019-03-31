@@ -1,8 +1,7 @@
 package com.estsoft.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.datatables.repository.DataTablesRepository;
 
 import com.estsoft.domain.Board;
 
-public interface BoardRepository extends JpaRepository<Board, Integer> {
-}
+public interface BoardRepository extends DataTablesRepository<Board, Integer> {} 
